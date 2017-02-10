@@ -29,7 +29,7 @@
 
     <properties>
         <!-- Jargon -->
-        <jargon.version>4.1.10.0-RC2</jargon.version>
+        <jargon.version>4.1.10.0-RELEASE</jargon.version>
     </properties>
 
     <repositories>
