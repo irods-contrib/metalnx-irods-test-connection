@@ -17,7 +17,6 @@
 
 package com.emc.metalnx.irods.connection;
 
-import com.emc.metalnx.utils.MetalnxTestConnectionVersion;
 import org.irods.jargon.core.connection.AuthScheme;
 import org.irods.jargon.core.connection.IRODSAccount;
 import org.irods.jargon.core.exception.JargonException;
