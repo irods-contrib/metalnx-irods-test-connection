@@ -17,6 +17,7 @@
 
 package com.emc.metalnx.irods.connection;
 
+import com.emc.metalnx.utils.MetalnxTestConnectionVersion;
 import org.irods.jargon.core.connection.AuthScheme;
 import org.irods.jargon.core.connection.IRODSAccount;
 import org.irods.jargon.core.exception.JargonException;
@@ -67,7 +68,8 @@ public class MlxIRODSConnectionTest {
      * Auxiliary method for usage instructions
      */
     private static void printUsage() {
-        System.out.println("Tests iRODS connection for Metalnx setup.");
+        String versionInfo = String.format("[%s-%s]", MetalnxTestConnectionVersion.VERSION, MetalnxTestConnectionVersion.BUILD_NUMBER);
+        System.out.println("Tests iRODS connection for Metalnx setup " + versionInfo);
         System.out.println("Usage: java -jar test-connection.jar [irods-host] [irods-port] [irods-username] [irods-password] [irods-zone] [auth-scheme]");
         System.out.println("\t[auth-scheme] can be STANDARD, PAM, GSI or KERBEROS");
         System.out.println("");
