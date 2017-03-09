@@ -31,6 +31,7 @@
         <!-- Jargon -->
         <jargon.version>4.1.10.0-RELEASE</jargon.version>
         <build.number>DEV</build.number>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
