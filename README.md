@@ -8,7 +8,7 @@ Metalnx IRODS Test Connection is a simple application that is responsible for te
 
 ## License
 
-Copyright © 2015-16 EMC Corporation.
+Copyright © 2015-2017 Dell Inc.
 
 This software is provided under the Software license provided in the [LICENSE](LICENSE.md) file.
 
