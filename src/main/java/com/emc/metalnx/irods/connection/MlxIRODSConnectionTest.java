@@ -27,13 +27,15 @@ import org.irods.jargon.core.pub.IRODSFileSystem;
 public class MlxIRODSConnectionTest {
 
     private static final int N_MANDATORY_ARGS = 6;
+    private static final int SUCCESS = 0;
+    private static final int ERROR = 1;
 
     public static void main(String[] args) throws JargonException {
 
         // Validating input
         if (args.length != N_MANDATORY_ARGS || !AuthScheme.getAuthSchemeList().contains(args[5])) {
             MlxIRODSConnectionTest.printUsage();
-            System.exit(ExitStatus.ERROR.statusCode);
+            System.exit(ERROR);
         }
 
         // Assigning input args to local variables (more readable)
@@ -58,10 +60,10 @@ public class MlxIRODSConnectionTest {
             // Closing session and client
             factory.closeSessionAndEatExceptions(acct);
         } catch (Exception e) {
-            System.exit(ExitStatus.ERROR.statusCode);
+            System.exit(ERROR);
         }
 
-        System.exit(ExitStatus.SUCCESS.statusCode);
+        System.exit(SUCCESS);
     }
 
     /**
@@ -77,17 +79,4 @@ public class MlxIRODSConnectionTest {
         System.out.println("\tjava -jar test-connection.jar myIcat.example.com 1247 rods rods tempZone STANDARD");
         System.out.println("");
     }
-
-    /**
-     * Enumeration for exit status code.
-     */
-    private enum ExitStatus {
-        SUCCESS(0), ERROR(1);
-        private int statusCode;
-
-        ExitStatus(int status) {
-            this.statusCode = status;
-        }
-    }
-
 }
