@@ -1,10 +1,6 @@
-![alt text] [1]
-[1]: docs/IMAGES/emc_metalnx_logo.png 
+![Metalnx Logo](docs/IMAGES/mlx_logo_blue.png)
 
 Metalnx IRODS Test Connection is a simple application that is responsible for testing connection with iRODS ([integrated Rule-Oriented Data System][irods]). 
-
-## Latest Version
-1.0
 
 ## License
 
