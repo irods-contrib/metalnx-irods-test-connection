@@ -70,7 +70,7 @@ public class MlxIRODSConnectionTest {
      * Auxiliary method for usage instructions
      */
     private static void printUsage() {
-        String versionInfo = String.format("[%s-%d]", MetalnxTestConnectionVersion.VERSION, MetalnxTestConnectionVersion.BUILD_NUMBER);
+        String versionInfo = "[" + MetalnxTestConnectionVersion.VERSION + "-" + MetalnxTestConnectionVersion.BUILD_NUMBER + "]";
         System.out.println("Tests iRODS connection for Metalnx setup " + versionInfo);
         System.out.println("Usage: java -jar test-connection.jar [irods-host] [irods-port] [irods-username] [irods-password] [irods-zone] [auth-scheme]");
         System.out.println("\t[auth-scheme] can be STANDARD, PAM, GSI or KERBEROS");
