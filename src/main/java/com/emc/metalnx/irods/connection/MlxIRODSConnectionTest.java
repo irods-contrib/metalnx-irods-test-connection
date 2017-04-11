@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2015-2017, Dell Inc.
+ *  Copyright (c) 2015-2017 Dell Inc.
  *
  * 	Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -26,19 +26,21 @@ import org.irods.jargon.core.pub.IRODSFileSystem;
 
 public class MlxIRODSConnectionTest {
 
-    private static final Integer N_MANDATORY_ARGS = 6;
+    private static final int N_MANDATORY_ARGS = 6;
+    private static final int SUCCESS = 0;
+    private static final int ERROR = 1;
 
     public static void main(String[] args) throws JargonException {
 
         // Validating input
         if (args.length != N_MANDATORY_ARGS || !AuthScheme.getAuthSchemeList().contains(args[5])) {
             MlxIRODSConnectionTest.printUsage();
-            System.exit(ExitStatus.ERROR.statusCode);
+            System.exit(ERROR);
         }
 
         // Assigning input args to local variables (more readable)
         String irodsHost = args[0];
-        Integer irodsPort = Integer.parseInt(args[1]);
+        int irodsPort = Integer.parseInt(args[1]);
         String irodsUser = args[2];
         String irodsPassword = args[3];
         String irodsZone = args[4];
@@ -58,17 +60,17 @@ public class MlxIRODSConnectionTest {
             // Closing session and client
             factory.closeSessionAndEatExceptions(acct);
         } catch (Exception e) {
-            System.exit(ExitStatus.ERROR.statusCode);
+            System.exit(ERROR);
         }
 
-        System.exit(ExitStatus.SUCCESS.statusCode);
+        System.exit(SUCCESS);
     }
 
     /**
      * Auxiliary method for usage instructions
      */
     private static void printUsage() {
-        String versionInfo = String.format("[%s-%s]", MetalnxTestConnectionVersion.VERSION, MetalnxTestConnectionVersion.BUILD_NUMBER);
+        String versionInfo = "[" + MetalnxTestConnectionVersion.VERSION + "-" + MetalnxTestConnectionVersion.BUILD_NUMBER + "]";
         System.out.println("Tests iRODS connection for Metalnx setup " + versionInfo);
         System.out.println("Usage: java -jar test-connection.jar [irods-host] [irods-port] [irods-username] [irods-password] [irods-zone] [auth-scheme]");
         System.out.println("\t[auth-scheme] can be STANDARD, PAM, GSI or KERBEROS");
@@ -77,17 +79,4 @@ public class MlxIRODSConnectionTest {
         System.out.println("\tjava -jar test-connection.jar myIcat.example.com 1247 rods rods tempZone STANDARD");
         System.out.println("");
     }
-
-    /**
-     * Enumeration for exit status code.
-     */
-    private enum ExitStatus {
-        SUCCESS(0), ERROR(1);
-        private int statusCode;
-
-        ExitStatus(int status) {
-            this.statusCode = status;
-        }
-    }
-
 }
