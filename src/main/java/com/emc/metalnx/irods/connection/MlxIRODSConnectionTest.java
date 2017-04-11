@@ -26,7 +26,7 @@ import org.irods.jargon.core.pub.IRODSFileSystem;
 
 public class MlxIRODSConnectionTest {
 
-    private static final Integer N_MANDATORY_ARGS = 6;
+    private static final int N_MANDATORY_ARGS = 6;
 
     public static void main(String[] args) throws JargonException {
 
@@ -38,7 +38,7 @@ public class MlxIRODSConnectionTest {
 
         // Assigning input args to local variables (more readable)
         String irodsHost = args[0];
-        Integer irodsPort = Integer.parseInt(args[1]);
+        int irodsPort = Integer.parseInt(args[1]);
         String irodsUser = args[2];
         String irodsPassword = args[3];
         String irodsZone = args[4];
@@ -68,7 +68,7 @@ public class MlxIRODSConnectionTest {
      * Auxiliary method for usage instructions
      */
     private static void printUsage() {
-        String versionInfo = String.format("[%s-%s]", MetalnxTestConnectionVersion.VERSION, MetalnxTestConnectionVersion.BUILD_NUMBER);
+        String versionInfo = String.format("[%s-%d]", MetalnxTestConnectionVersion.VERSION, MetalnxTestConnectionVersion.BUILD_NUMBER);
         System.out.println("Tests iRODS connection for Metalnx setup " + versionInfo);
         System.out.println("Usage: java -jar test-connection.jar [irods-host] [irods-port] [irods-username] [irods-password] [irods-zone] [auth-scheme]");
         System.out.println("\t[auth-scheme] can be STANDARD, PAM, GSI or KERBEROS");
